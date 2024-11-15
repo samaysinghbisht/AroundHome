@@ -23,8 +23,9 @@ jobs:
         # Step 3: Build and Push Docker Image
         - name: Build and Push Docker Image
           run: |
-            docker build -t ${{ secrets.DOCKER_USERNAME }}/hello-world:latest .
-            docker push ${{ secrets.DOCKER_USERNAME }}/hello-world:latest
+            IMAGE_TAG=${{ github.sha }}
+            docker build -t ${{ secrets.DOCKER_USERNAME }}/hello-world:${IMAGE_TAG} .
+            docker push ${{ secrets.DOCKER_USERNAME }}/hello-world:${IMAGE_TAG}
     
         # Step 4: Configure AWS Credentials
         - name: Configure AWS Credentials
@@ -62,4 +63,6 @@ jobs:
           run: |
             helm upgrade --install hello-world hello-world-helm \
             --namespace aroundhome \
+            --set image.tag=${{ github.sha }} \
+            --set image.pullPolicy=Always \
             --wait

@@ -60,6 +60,6 @@ jobs:
         # Step 9: Deploy Helm Chart
         - name: Deploy Helm Chart
           run: |
-            helm upgrade --install hello-world charts/hello-world \
+            helm upgrade --install hello-world hello-world-helm \
             --namespace hello-world \
             --wait

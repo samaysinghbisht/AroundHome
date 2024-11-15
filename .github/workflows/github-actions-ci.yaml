@@ -55,11 +55,11 @@ jobs:
         # Step 8: Create Namespace if Not Exists
         - name: Create Namespace
           run: |
-            kubectl get namespace hello-world || kubectl create namespace hello-world
+            kubectl get namespace aroundhome || kubectl create namespace aroundhome
 
         # Step 9: Deploy Helm Chart
         - name: Deploy Helm Chart
           run: |
             helm upgrade --install hello-world hello-world-helm \
-            --namespace hello-world \
+            --namespace aroundhome \
             --wait

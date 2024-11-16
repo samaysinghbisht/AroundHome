@@ -4,7 +4,7 @@ image:
   repository: samay1993/hello-world
   pullPolicy: Always
 
-  tag: ""
+  tag: "latest"
 
 resources:
   requests:

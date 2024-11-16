@@ -1,0 +1,27 @@
+# Ignore Helm build artifacts
+charts/*.tgz
+charts/.helmignore
+charts/*/values.yaml
+charts/*/Chart.lock
+
+# Ignore Kubernetes-related files
+*.kubeconfig
+*.yaml.local
+
+# Ignore IDE/editor-specific files
+.vscode/
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore Terraform state files if using IaC
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+*/.terraform/*
+.terraform.lock.hcl
